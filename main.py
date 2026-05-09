@@ -1,6 +1,7 @@
 import typer
 
 import configure
+import organizations
 from fuzzy_find import fuzzy_find
 
 app = typer.Typer(help="Jira Report Buddy")
@@ -10,8 +11,9 @@ app = typer.Typer(help="Jira Report Buddy")
 def default(ctx: typer.Context) -> None:
     if ctx.invoked_subcommand is None:
         configure.load()
-        options: list[str] = ['Java', 'JavaScript', 'Python', 'PHP', 'C++', 'Erlang', 'Haskell']
-        option, index = fuzzy_find(options, title='Please choose your favorite programming language: ')
+        #options: list[str] = ['Java', 'JavaScript', 'Python', 'PHP', 'C++', 'Erlang', 'Haskell']
+        options: list[str] = organizations.get_organizations()
+        option, index = fuzzy_find(options, title='Which organization do you want to report on: ')
         print(option)
         print(index)
 

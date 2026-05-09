@@ -1,6 +1,7 @@
 import argparse
 import os
 import sys
+import time
 from pathlib import Path
 from typing import TypedDict, cast
 
@@ -123,6 +124,25 @@ def fetch_organizations_from_jira() -> list[str]:
     return sorted(organizations)
 
 
+_CACHE_TTL_SECONDS = 24 * 60 * 60
+
+
+def _cache_is_valid() -> bool:
+    if not CACHE_FILE.exists():
+        return False
+    return time.time() - CACHE_FILE.stat().st_mtime < _CACHE_TTL_SECONDS
+
+
+def get_organizations(refresh: bool = False) -> list[str]:
+    if not refresh and _cache_is_valid():
+        cached = read_cache()
+        if cached is not None:
+            return cached.splitlines()
+    orgs = fetch_organizations_from_jira()
+    write_cache(orgs)
+    return orgs
+
+
 def read_cache() -> str | None:
     if CACHE_FILE.exists():
         return CACHE_FILE.read_text()
@@ -151,16 +171,7 @@ def main() -> None:
     )
     args = cast(_Args, parser.parse_args())
 
-    if not args.refresh:
-        cached = read_cache()
-        if cached is not None:
-            print(cached, end="")
-            return
-
-    organizations = fetch_organizations_from_jira()
-    write_cache(organizations)
-
-    for org in organizations:
+    for org in get_organizations(refresh=args.refresh):
         print(org)
 
 
