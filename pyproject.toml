@@ -20,7 +20,7 @@ dependencies = [
 jira-report-buddy = "main:main"
 
 [tool.setuptools]
-py-modules = ["main", "fuzzy_find", "configure"]
+py-modules = ["main", "fuzzy_find", "configure", "jira_buddy"]
 
 [tool.pyright]
 reportImplicitOverride = true

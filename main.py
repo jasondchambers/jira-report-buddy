@@ -19,7 +19,13 @@ def default(ctx: typer.Context) -> None:
 @app.command()
 def init() -> None:
     """Configure Jira connection settings."""
-    configure.init()
+    _ = configure.init()
+
+
+@app.command()
+def setproject() -> None:
+    """Select and set the active Jira project."""
+    configure.set_project()
 
 
 def main() -> None:
