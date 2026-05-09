@@ -1,3 +1,5 @@
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=jasondchambers_jira-report-buddy&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=jasondchambers_jira-report-buddy) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=jasondchambers_jira-report-buddy&metric=bugs)](https://sonarcloud.io/summary/new_code?id=jasondchambers_jira-report-buddy) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=jasondchambers_jira-report-buddy&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=jasondchambers_jira-report-buddy) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=jasondchambers_jira-report-buddy&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=jasondchambers_jira-report-buddy) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=jasondchambers_jira-report-buddy&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=jasondchambers_jira-report-buddy)
+
 ## jira-report-buddy
 
-A handy tool to get the reports you need out of Jira - so you don't have to
+A handy tool to get the reports you need out of Jira - so you don't have to.
