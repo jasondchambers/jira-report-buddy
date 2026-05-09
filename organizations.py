@@ -37,7 +37,7 @@ def get_jira_config() -> tuple[str, str, str, str, str]:
     email = os.getenv("JIRA_EMAIL")
     api_token = os.getenv("JIRA_API_TOKEN")
     jira_project = os.getenv("JIRA_PROJECT")
-    org_field = os.getenv("JIRA_ISSUE_ORGANIZATION_FIELD_NAME")
+    org_field = os.getenv("JIRA_ISSUE_ORGANIZATION_FIELD_NAME", "customfield_10002")
 
     if url is None or email is None or api_token is None or jira_project is None or org_field is None:
         raise ValueError(
